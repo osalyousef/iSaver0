@@ -65,9 +65,10 @@ struct AddView: View {
                         }
                     }
                 }
-            }
-        
+            
+            .navigationBarBackButtonHidden()
         }
+    }
 
 
 }

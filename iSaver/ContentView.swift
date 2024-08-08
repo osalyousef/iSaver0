@@ -69,7 +69,6 @@ struct ContentView: View {
                     .onDelete(perform: removePersonalItems)
                 }
                 
-                // Business Expenses Section
                 Section(header: Text("Business Expenses").foregroundStyle(.white)) {
                     ForEach(expenses.items.filter { $0.type == "Business" }) { item in
                         HStack {
@@ -105,6 +104,7 @@ struct ContentView: View {
             }
         }
     
+    // uniform remove items from a list function
     func removeItems(at offsets: IndexSet, in inputArray: [ExpensesItems]) {
         var objectsToDelete = IndexSet()
 
@@ -117,11 +117,12 @@ struct ContentView: View {
         }
         expenses.items.remove(atOffsets: objectsToDelete)
     }
+    
+    //smaller one that depends on the uniform one but for personal items section
     func removePersonalItems(at offsets: IndexSet) {
         removeItems(at: offsets , in: expenses.personalItems)
     }
-
-       // Function to remove business items
+    //smaller one that depends on the uniform one but for business items section
        func removeBusinessItems(at offsets_: IndexSet) {
            removeItems(at: offsets_, in: expenses.businessItems)
            }
